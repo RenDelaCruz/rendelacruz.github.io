@@ -104,7 +104,7 @@ export function Hero() {
           margin: '0 auto',
           animation: reduced
             ? 'none'
-              : 'hero-pop 1.4s cubic-bezier(.22, 1, .36, 1) both',
+            : 'hero-pop 1.4s cubic-bezier(.22, 1, .36, 1) both',
         }}
       >
         <div

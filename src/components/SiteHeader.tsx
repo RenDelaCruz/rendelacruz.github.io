@@ -37,6 +37,7 @@ export function SiteHeader() {
     <header
       style={{
         ...glass,
+        background: 'rgba(9, 26, 28, 0.94)',
         position: 'fixed',
         zIndex: 20,
         top: desktop ? 24 : 16,
