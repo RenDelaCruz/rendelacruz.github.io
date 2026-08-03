@@ -21,136 +21,160 @@ export function SiteHeader() {
         padding: 0,
       }
     : {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 68,
+        position: 'fixed',
+        left: '50%',
+        top: 84,
+        right: 'auto',
+        zIndex: 19,
+        transform: 'translateX(-50%)',
+        width: 'calc(100% - 4rem)',
+        maxWidth: 1152,
         display: menuOpen ? 'flex' : 'none',
         flexDirection: 'column',
         gap: 4,
         border: '1px solid rgba(255,255,255,.15)',
         borderRadius: 12,
-        background: '#091a1cf5',
+        background: 'rgba(29, 57, 55, 0.82)',
+        backdropFilter: 'blur(20px) saturate(115%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(115%)',
+        isolation: 'isolate',
+        willChange: 'backdrop-filter',
         padding: 8,
       };
-  return (
-    <header
+  const navigationLinks = links.map(([href, label]) => (
+    <a
+      key={href}
+      href={`#${href}`}
+      onClick={() => setMenuOpen(false)}
+      onMouseEnter={() => setHoveredLink(href)}
+      onMouseLeave={() => setHoveredLink(null)}
       style={{
-        ...glass,
-        background: 'rgba(9, 26, 28, 0.94)',
-        position: 'fixed',
-        zIndex: 20,
-        top: desktop ? 24 : 16,
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: 24,
-        width: 'calc(100% - 4rem)',
-        maxWidth: 1152,
-        height: desktop ? 64 : 56,
-        padding: desktop ? '0 20px' : '0 16px',
-        borderRadius: 12,
+        ...mono,
+        padding: desktop ? 0 : '12px',
+        color: hoveredLink === href ? colors.mint : colors.muted,
+        fontSize: 10,
+        textTransform: 'uppercase',
+        letterSpacing: '.1em',
+        textDecoration: 'none',
+        transition: 'color .2s ease',
       }}
     >
-      <a
-        href={`#${site.topId}`}
-        onClick={() => setMenuOpen(false)}
+      {label}
+    </a>
+  ));
+  return (
+    <>
+      <header
         style={{
+          ...glass,
+        background: 'rgba(29, 57, 55, 0.82)',
+          backdropFilter: 'blur(20px) saturate(115%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(115%)',
+          position: 'fixed',
+          zIndex: 20,
+          top: desktop ? 24 : 16,
+          left: '50%',
+          transform: 'translateX(-50%)',
           display: 'flex',
           alignItems: 'center',
-          gap: 8,
-          color: colors.text,
-          fontSize: 12,
-          fontWeight: 700,
-          letterSpacing: '-.025em',
-          textDecoration: 'none',
+          gap: 24,
+          width: 'calc(100% - 4rem)',
+          maxWidth: 1152,
+          height: desktop ? 64 : 56,
+          padding: desktop ? '0 20px' : '0 16px',
+          borderRadius: 12,
         }}
       >
-        <span
+        <a
+          href={`#${site.topId}`}
+          onClick={() => setMenuOpen(false)}
           style={{
-            ...mono,
-            display: 'grid',
-            placeItems: 'center',
-            width: 28,
-            height: 28,
-            borderRadius: '50%',
-            background: colors.mint,
-            color: '#10241c',
-            fontSize: 12,
-            lineHeight: 1,
-          }}
-        >
-          {site.initials}
-        </span>
-        {site.name}
-      </a>
-      {!desktop && (
-        <button
-          style={{
-            ...mono,
-            marginLeft: 'auto',
             display: 'flex',
             alignItems: 'center',
             gap: 8,
-            border: 0,
-            background: 'transparent',
-            color: colors.muted,
-            fontSize: 10,
-            textTransform: 'uppercase',
+            color: colors.text,
+            fontSize: 12,
+            fontWeight: 700,
+            letterSpacing: '-.025em',
+            textDecoration: 'none',
           }}
-          aria-expanded={menuOpen}
-          aria-controls={site.navigation.id}
-          aria-label={
-            menuOpen ? site.navigation.closeLabel : site.navigation.openLabel
-          }
-          onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? (
-            <FaTimes
-              aria-hidden="true"
-              style={{
-                color: colors.mint,
-                fontSize: 16,
-                transform: 'rotate(90deg)',
-                transition: 'transform .2s ease',
-              }}
-            />
-          ) : (
-            <FaBars
-              aria-hidden="true"
-              style={{ color: colors.mint, fontSize: 16 }}
-            />
-          )}
-        </button>
-      )}
-      <nav
-        id={site.navigation.id}
-        aria-label={site.navigation.label}
-        style={navStyle}
-      >
-        {links.map(([href, label]) => (
-          <a
-            key={href}
-            href={`#${href}`}
-            onClick={() => setMenuOpen(false)}
-            onMouseEnter={() => setHoveredLink(href)}
-            onMouseLeave={() => setHoveredLink(null)}
+          <span
             style={{
               ...mono,
-              padding: desktop ? 0 : '12px',
-              color: hoveredLink === href ? colors.text : colors.muted,
-              fontSize: 10,
-              textTransform: 'uppercase',
-              letterSpacing: '.1em',
-              textDecoration: 'none',
-              transition: 'color .2s ease',
+              display: 'grid',
+              placeItems: 'center',
+              width: 28,
+              height: 28,
+              borderRadius: '50%',
+              background: colors.mint,
+              color: '#10241c',
+              fontSize: 12,
+              lineHeight: 1,
             }}
           >
-            {label}
-          </a>
-        ))}
-      </nav>
-    </header>
+            {site.initials}
+          </span>
+          {site.name}
+        </a>
+        {!desktop && (
+          <button
+            style={{
+              ...mono,
+              marginLeft: 'auto',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              border: 0,
+              background: 'transparent',
+              color: colors.muted,
+              fontSize: 10,
+              textTransform: 'uppercase',
+            }}
+            aria-expanded={menuOpen}
+            aria-controls={site.navigation.id}
+            aria-label={
+              menuOpen ? site.navigation.closeLabel : site.navigation.openLabel
+            }
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? (
+              <FaTimes
+                aria-hidden="true"
+                style={{
+                  color: colors.mint,
+                  fontSize: 16,
+                  transform: 'rotate(90deg)',
+                  transition: 'transform .2s ease',
+                }}
+              />
+            ) : (
+              <FaBars
+                aria-hidden="true"
+                style={{ color: colors.mint, fontSize: 16 }}
+              />
+            )}
+          </button>
+        )}
+        {desktop && (
+          <nav
+            id={site.navigation.id}
+            aria-label={site.navigation.label}
+            style={navStyle}
+          >
+            {navigationLinks}
+          </nav>
+        )}
+      </header>
+      {!desktop && (
+        <nav
+          id={site.navigation.id}
+          aria-label={site.navigation.label}
+          style={navStyle}
+        >
+          {navigationLinks}
+        </nav>
+      )}
+    </>
   );
 }

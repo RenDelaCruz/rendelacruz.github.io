@@ -59,7 +59,7 @@ export function ProjectCard() {
                 padding: '8px 12px',
                 border: '1px solid rgba(255,255,255,.15)',
                 borderRadius: 999,
-                color: '#9db0a9',
+                color: colors.mint,
                 fontSize: 9,
               }}
             >

@@ -5,11 +5,7 @@ import { colors, mono, useMediaQuery } from '../styles';
 export function ResumeCard({ item }: { item: ResumeCardData }) {
   const wide = useMediaQuery('(min-width: 640px)');
   return (
-    <GlassCard
-      style={{
-        padding: wide ? 28 : 20,
-      }}
-    >
+    <GlassCard style={{ padding: wide ? 28 : 20 }}>
       <div
         style={{
           display: 'flex',

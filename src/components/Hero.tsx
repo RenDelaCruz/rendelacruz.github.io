@@ -165,6 +165,7 @@ export function Hero() {
               fontSize: 11,
               textTransform: 'uppercase',
               letterSpacing: '.16em',
+              textShadow: '0 2px 18px rgba(0, 0, 0, 0.95)',
             }}
           >
             <span

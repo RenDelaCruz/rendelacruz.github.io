@@ -21,7 +21,7 @@ export const colors = {
 export const mono: CSSProperties = { fontFamily: "'DM Mono', monospace" };
 
 export const glass: CSSProperties = {
-  background: css`linear-gradient(135deg, rgba(12, 30, 32, 0.78), rgba(16, 38, 39, 0.58))`,
+  background: css`linear-gradient(135deg, rgba(12, 30, 32, 0.62), rgba(16, 38, 39, 0.42))`,
   border: '1px solid rgba(235, 255, 239, 0.28)',
   boxShadow:
     'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 18px 45px rgba(0, 0, 0, 0.24)',

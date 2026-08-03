@@ -1,5 +1,4 @@
 import { colors, css } from '../styles';
-import mountainImage from '../../assets/annapurna-optimized.jpg';
 
 export function GlobalStyles() {
   return (
@@ -26,11 +25,6 @@ export function GlobalStyles() {
         min-width: 320px;
         overflow-x: hidden;
         background-color: ${colors.background};
-        background-image: ${css`url(${mountainImage}), linear-gradient(90deg, #6b9994 0%, #98b5a7 100%)`};
-        background-position: 58% center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
       }
       a:focus-visible,
       button:focus-visible {
