@@ -33,7 +33,7 @@ export const site = {
   hero: {
     headingId: 'hero-title',
     greeting: "Hi, I'm",
-    name: 'Ren.',
+    name: 'Ren',
     location: 'Toronto, Canada',
     title: 'Full-Stack Software Engineer',
     mountainAlt: 'Mountain landscape',
