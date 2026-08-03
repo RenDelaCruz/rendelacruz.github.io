@@ -141,7 +141,7 @@ export function Hero() {
             style={{
               ...mono,
               display: 'flex',
-              justifyContent: 'flex-start',
+              justifyContent: row ? 'flex-start' : 'center',
               alignItems: 'center',
               gap: 8,
               margin: '0 0 20px',
@@ -169,10 +169,10 @@ export function Hero() {
               margin: 0,
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'flex-start',
+              alignItems: row ? 'flex-start' : 'center',
               width: '100%',
               color: colors.text,
-              textAlign: 'left',
+              textAlign: row ? 'left' : 'center',
               fontSize: 'clamp(5rem, 14vw, 9.5rem)',
               fontWeight: 700,
               lineHeight: '.82',
@@ -199,7 +199,7 @@ export function Hero() {
                 padding: 0,
                 textIndent: '-0.04em',
                 color: colors.mint,
-                textAlign: 'left',
+                textAlign: row ? 'left' : 'center',
                 letterSpacing: small ? '-.04em' : '-.02em',
                 fontWeight: 700,
               }}
@@ -212,7 +212,7 @@ export function Hero() {
               margin: '20px 0 0',
               paddingLeft: 0,
               color: colors.body,
-              textAlign: 'left',
+              textAlign: row ? 'left' : 'center',
               fontSize: small ? 24 : 18,
               letterSpacing: '-.025em',
             }}
@@ -222,6 +222,7 @@ export function Hero() {
           <div
             style={{
               display: 'flex',
+              justifyContent: row ? 'flex-start' : 'center',
               alignItems: 'center',
               gap: 10,
               marginTop: 28,
