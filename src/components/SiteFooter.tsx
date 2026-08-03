@@ -1,6 +1,6 @@
-import { mono, useMediaQuery } from '../styles';
 import { FaArrowUp } from 'react-icons/fa';
 import { site } from '../data/portfolio';
+import { mono, useMediaQuery } from '../styles';
 
 export function SiteFooter() {
   const wide = useMediaQuery('(min-width: 640px)');

@@ -1,16 +1,10 @@
 import type { ReactNode } from 'react';
 import { FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import mcmasterLogo from '../../assets/mcmaster_logo.svg';
+import mcmasterLogo from '../../assets/mcmaster_logo.jpg';
 import prodigyLogo from '../../assets/prodigyedu_logo.jpeg';
 import robinhoodLogo from '../../assets/robinhood_logo.jpeg';
 import stripeLogo from '../../assets/stripe_logo.jpeg';
 
-export type Experience = {
-  company: string;
-  roles: { title: string; period: string }[];
-  location: string;
-  logo: string;
-};
 export type SocialLinkData = {
   label: string;
   href: string;
@@ -26,17 +20,9 @@ export type SectionData = {
 };
 
 export type ResumeCardData = {
-  kind: 'experience' | 'education';
   title: string;
   location: string;
   logo: string;
-  logoAlt: string;
-  logoBackground: string;
-  logoObjectFit: 'cover' | 'contain';
-  logoOffsetY?: number;
-  logoSize?: number;
-  logoRadius?: number;
-  cardPadding?: { mobile: number; wide: number };
   entries: { title: string; period: string }[];
 };
 
@@ -46,7 +32,7 @@ export const site = {
   initials: 'R',
   hero: {
     headingId: 'hero-title',
-    greeting: 'Hi, I’m',
+    greeting: "Hi, I'm",
     name: 'Ren.',
     location: 'Toronto, Canada',
     title: 'Full-Stack Software Engineer',
@@ -98,22 +84,24 @@ export const sections: Record<string, SectionData> = {
   },
 };
 
-export const experiences: Experience[] = [
+export const experienceCards: ResumeCardData[] = [
   {
-    company: 'Stripe',
-    roles: [{ title: 'Software Engineer', period: 'Apr 2026 — Present' }],
+    title: 'Stripe',
     location: 'Toronto, Ontario, Canada',
     logo: stripeLogo,
+    entries: [{ title: 'Software Engineer', period: 'Apr 2026 — Present' }],
   },
   {
-    company: 'Robinhood',
-    roles: [{ title: 'Software Engineer', period: 'Jan 2025 — Apr 2026' }],
+    title: 'Robinhood',
     location: 'Toronto, Ontario, Canada',
     logo: robinhoodLogo,
+    entries: [{ title: 'Software Engineer', period: 'Jan 2025 — Apr 2026' }],
   },
   {
-    company: 'Prodigy Education',
-    roles: [
+    title: 'Prodigy Education',
+    location: 'Toronto, Ontario, Canada',
+    logo: prodigyLogo,
+    entries: [
       {
         title: 'Full Stack Software Developer II',
         period: 'Jan 2024 — Dec 2024',
@@ -127,8 +115,15 @@ export const experiences: Experience[] = [
         period: 'May 2021 — Aug 2022',
       },
     ],
-    location: 'Toronto, Ontario, Canada',
-    logo: prodigyLogo,
+  },
+];
+
+export const educationCards: ResumeCardData[] = [
+  {
+    title: 'McMaster University',
+    location: 'Hamilton, Canada',
+    logo: mcmasterLogo,
+    entries: [{ title: 'Bachelor of Computer Science', period: '2018 — 2023' }],
   },
 ];
 
@@ -150,48 +145,6 @@ export const socialLinks: SocialLinkData[] = [
     icon: <FaGithub />,
   },
 ];
-
-export const education = {
-  school: 'McMaster University',
-  degree: 'Bachelor of Computer Science',
-  period: '2018 — 2023',
-  location: 'Hamilton, Canada',
-  logo: mcmasterLogo,
-};
-
-export const resumeCards: ResumeCardData[] = [
-  ...experiences.map((item) => ({
-    kind: 'experience' as const,
-    title: item.company,
-    location: item.location,
-    logo: item.logo,
-    logoAlt: `${item.company} logo`,
-    logoBackground: 'rgba(255,255,255,.1)',
-    logoObjectFit: 'cover' as const,
-    entries: item.roles,
-  })),
-  {
-    kind: 'education' as const,
-    title: education.school,
-    location: education.location,
-    logo: education.logo,
-    logoAlt: `${education.school} logo`,
-    logoBackground: 'white',
-    logoObjectFit: 'contain',
-    logoOffsetY: -2,
-    logoSize: 56,
-    logoRadius: 12,
-    cardPadding: { mobile: 20, wide: 32 },
-    entries: [{ title: education.degree, period: education.period }],
-  },
-];
-
-export const experienceCards = resumeCards.filter(
-  (item) => item.kind === 'experience'
-);
-export const educationCards = resumeCards.filter(
-  (item) => item.kind === 'education'
-);
 
 export const project = {
   eyebrow: 'Project / 01',

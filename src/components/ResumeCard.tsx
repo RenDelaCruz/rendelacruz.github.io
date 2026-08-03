@@ -7,13 +7,7 @@ export function ResumeCard({ item }: { item: ResumeCardData }) {
   return (
     <GlassCard
       style={{
-        padding: item.cardPadding
-          ? wide
-            ? item.cardPadding.wide
-            : item.cardPadding.mobile
-          : wide
-            ? 28
-            : 20,
+        padding: wide ? 28 : 20,
       }}
     >
       <div
@@ -27,27 +21,24 @@ export function ResumeCard({ item }: { item: ResumeCardData }) {
           style={{
             display: 'grid',
             placeItems: 'center',
-            width: item.logoSize ?? (wide ? 48 : 40),
-            height: item.logoSize ?? (wide ? 48 : 40),
+            width: wide ? 48 : 40,
+            height: wide ? 48 : 40,
             flexShrink: 0,
             overflow: 'hidden',
             border: '1px solid rgba(255,255,255,.15)',
-            borderRadius: item.logoRadius ?? 8,
-            background: item.logoBackground,
+            borderRadius: 8,
+            background: 'rgba(255,255,255,.1)',
           }}
         >
           <img
             loading="lazy"
             decoding="async"
             src={item.logo}
-            alt={item.logoAlt}
+            alt=""
             style={{
               width: '100%',
               height: '100%',
-              objectFit: item.logoObjectFit,
-              transform: item.logoOffsetY
-                ? `translateY(${item.logoOffsetY}px)`
-                : undefined,
+              objectFit: 'contain',
             }}
           />
         </div>

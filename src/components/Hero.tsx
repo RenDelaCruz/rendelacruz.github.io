@@ -2,8 +2,7 @@ import { FaArrowDown } from 'react-icons/fa';
 import mountainImage from '../../assets/annapurna-optimized.jpg';
 import profileImage from '../../assets/profile-optimized.jpg';
 import { sections, site, socialLinks } from '../data/portfolio';
-import { colors, mono, useMediaQuery } from '../styles';
-import { css } from '../styles';
+import { colors, css, mono, useMediaQuery } from '../styles';
 import { SocialLink } from './SocialLink';
 
 export function Hero() {
