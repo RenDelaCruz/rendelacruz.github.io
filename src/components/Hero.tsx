@@ -21,7 +21,7 @@ export function Hero() {
         height: '100svh',
         minHeight: '100svh',
         width: '100vw',
-        overflow: 'hidden',
+        overflow: 'visible',
         paddingTop: 96,
       }}
     >
@@ -38,6 +38,16 @@ export function Hero() {
             }
             to {
               transform: scale(1.28);
+            }
+          }
+          @keyframes hero-pop {
+            from {
+              opacity: 0;
+              transform: translateY(18px) scale(0.96);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0) scale(1);
             }
           }
           @supports (animation-timeline: scroll()) {
@@ -74,16 +84,14 @@ export function Hero() {
           zIndex: 0,
           overflow: 'hidden',
           boxShadow: 'none',
-          contain: 'paint',
-          backgroundImage: row
-            ? css`linear-gradient(90deg, rgba(6,18,22,.92), rgba(6,18,22,.43) 44%, rgba(6,18,22,.05) 90%), linear-gradient(0deg, rgba(6,18,22,.82), transparent 44%), radial-gradient(ellipse at center, transparent 38%, rgba(2,10,14,.42) 100%), url(${mountainImage})`
-            : css`linear-gradient(180deg, rgba(6,18,22,.38), rgba(6,18,22,.12) 38%, rgba(6,18,22,.9) 92%), radial-gradient(ellipse at center, transparent 38%, rgba(2,10,14,.42) 100%), url(${mountainImage})`,
+          backgroundImage: css`url(${mountainImage})`,
           backgroundPosition: '58% center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
       ></div>
       <div
+        data-hero-content
         style={{
           position: 'relative',
           zIndex: 10,
@@ -94,6 +102,9 @@ export function Hero() {
           width: 'calc(100% - 4rem)',
           maxWidth: 1152,
           margin: '0 auto',
+          animation: reduced
+            ? 'none'
+              : 'hero-pop 1.4s cubic-bezier(.22, 1, .36, 1) both',
         }}
       >
         <div
@@ -136,7 +147,12 @@ export function Hero() {
             />
           </div>
         </div>
-        <div style={{ width: '100%' }}>
+        <div
+          style={{
+            width: '100%',
+            textShadow: '0 2px 14px rgba(0, 0, 0, 0.72)',
+          }}
+        >
           <p
             style={{
               ...mono,
@@ -250,6 +266,7 @@ export function Hero() {
           textTransform: 'uppercase',
           letterSpacing: '.13em',
           textDecoration: 'none',
+          textShadow: '0 2px 12px rgba(0, 0, 0, 0.8)',
         }}
       >
         <span>{site.hero.scrollLabel}</span>

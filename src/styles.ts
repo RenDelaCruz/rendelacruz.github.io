@@ -11,7 +11,7 @@ export function css(
 }
 
 export const colors = {
-  background: '#081318',
+  background: '#82a79f',
   text: '#edf5f0',
   mint: '#c4f4c6',
   muted: '#a6b8b0',
