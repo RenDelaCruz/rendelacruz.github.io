@@ -57,7 +57,7 @@ export function ProjectCard() {
               style={{
                 ...mono,
                 padding: '8px 12px',
-                border: '1px solid rgba(255,255,255,.15)',
+                border: `1px solid ${colors.mint}`,
                 borderRadius: 999,
                 color: colors.mint,
                 fontSize: 9,

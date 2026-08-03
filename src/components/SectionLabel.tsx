@@ -19,7 +19,7 @@ export function SectionLabel({ section }: { section: SectionData }) {
     >
       <span style={{ color: colors.mint }}>{section.number}</span>
       {section.label}
-      <i style={{ height: 1, width: 36, background: 'rgba(196,244,198,.6)' }} />
+      <i style={{ height: 2, width: 36, background: colors.mint }} />
     </p>
   );
 }

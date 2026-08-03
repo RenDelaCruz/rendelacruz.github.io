@@ -34,7 +34,7 @@ export function SiteHeader() {
         gap: 4,
         border: '1px solid rgba(255,255,255,.15)',
         borderRadius: 12,
-        background: 'rgba(29, 57, 55, 0.82)',
+        background: 'rgba(22, 41, 42, 0.82)',
         backdropFilter: 'blur(20px) saturate(115%)',
         WebkitBackdropFilter: 'blur(20px) saturate(115%)',
         isolation: 'isolate',
@@ -67,7 +67,7 @@ export function SiteHeader() {
       <header
         style={{
           ...glass,
-        background: 'rgba(29, 57, 55, 0.82)',
+          background: 'rgba(22, 41, 42, 0.82)',
           backdropFilter: 'blur(20px) saturate(115%)',
           WebkitBackdropFilter: 'blur(20px) saturate(115%)',
           position: 'fixed',
