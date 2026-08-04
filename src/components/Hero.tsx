@@ -1,5 +1,5 @@
 import { FaArrowDown } from 'react-icons/fa';
-import mountainImage from '../../assets/annapurna-optimized.jpg';
+import mountainImage from '../../assets/annapurna-mountains-optimized.png';
 import profileImage from '../../assets/profile-optimized.jpg';
 import { sections, site, socialLinks } from '../data/portfolio';
 import { colors, css, mono, useMediaQuery } from '../styles';
@@ -84,7 +84,7 @@ export function Hero() {
           zIndex: 0,
           overflow: 'hidden',
           boxShadow: 'none',
-          backgroundImage: css`url(${mountainImage})`,
+          backgroundImage: css`url(${mountainImage}), linear-gradient(180deg, rgb(101, 132, 131) 0%, rgb(188, 197, 176) 100%)`,
           backgroundPosition: '58% center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
