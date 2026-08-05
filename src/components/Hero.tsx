@@ -84,7 +84,7 @@ export function Hero() {
           zIndex: 0,
           overflow: 'hidden',
           boxShadow: 'none',
-          backgroundImage: css`url(${mountainImage}), linear-gradient(180deg, rgb(101, 132, 131) 0%, rgb(188, 197, 176) 100%)`,
+          backgroundImage: css`url(${mountainImage}), linear-gradient(180deg, #658483 0%, #658483 30%, #bcc5b0 95%, #0e2325 100%)`,
           backgroundPosition: '58% center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
